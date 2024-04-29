@@ -6,10 +6,14 @@ import { router } from './router/router';
 import './index.css';
 import { ChakraProvider } from '@chakra-ui/react';
 
+import { TanStackProvider } from './plugins';
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ChakraProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </ChakraProvider>
+    <TanStackProvider>
+      <ChakraProvider>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </TanStackProvider>
   </React.StrictMode>
 );
