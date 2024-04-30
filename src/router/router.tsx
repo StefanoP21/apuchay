@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { ErrorPage } from '../shared';
-import { AppLayout } from '../app';
+import { AppLayout, HomePage, ProjectsPage } from '../app';
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +10,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <div>Home</div>,
+        element: <HomePage />,
+      },
+      {
+        path: 'projects',
+        element: <ProjectsPage />,
       },
     ],
   },
