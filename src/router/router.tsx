@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         element: <LearnPage />,
       },
       {
-        path: 'project/:id',
+        path: 'projects/:id',
         element: <ProjectByIdPage />,
       },
     ],
