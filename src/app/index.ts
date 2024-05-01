@@ -16,3 +16,9 @@ export { ProjectTable } from './components/ProjectTable';
 
 export { LearnList } from './components/LearnList';
 export { LearnCard } from './components/LearnCard';
+
+export type { Project } from './interfaces/project';
+
+export * as projectActions from './services/actions';
+
+export { useProjects } from './hooks/useProjects';
