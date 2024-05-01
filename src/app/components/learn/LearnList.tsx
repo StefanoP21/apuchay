@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@chakra-ui/react';
-import { LearnCard } from '../';
+import { LearnCard } from '../..';
 
 interface LearnListProps {
   courses: any[];

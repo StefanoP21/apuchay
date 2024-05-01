@@ -14,32 +14,34 @@ import {
 } from '@chakra-ui/react';
 import { WarningIcon, CopyIcon } from '@chakra-ui/icons';
 
+import type { Project } from '../..';
+
 interface ProjectByIdCardProps {
-  project: any;
+  project: Project;
 }
 
 export const ProjectByIdCard = ({ project }: ProjectByIdCardProps) => {
   const {
-    imageURL,
+    infobrasCode,
+    imageUrl,
     name,
-    codINFOBRAS,
     entity,
     type,
-    state,
-    initialDate,
-    finalDate,
-    local,
+    status,
+    startDate,
+    endDate,
+    location,
     address,
     amount,
   } = project;
 
   const toast = useToast();
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
+  const copyToClipboard = (code: string) => {
+    navigator.clipboard.writeText(code).then(() => {
       toast({
         title: 'Copiado al portapapeles',
-        description: `El texto "${text}" ha sido copiado al portapapeles.`,
+        description: `El código "${code}" ha sido copiado al portapapeles.`,
         status: 'success',
         duration: 3000,
         isClosable: true,
@@ -59,7 +61,7 @@ export const ProjectByIdCard = ({ project }: ProjectByIdCardProps) => {
       <Image
         objectFit="cover"
         maxW={{ base: '100%', md: '500px' }}
-        src={imageURL}
+        src={imageUrl}
         alt={name}
       />
       <Stack>
@@ -74,7 +76,7 @@ export const ProjectByIdCard = ({ project }: ProjectByIdCardProps) => {
             w="210px"
             borderRadius={10}
           >
-            <b>Código INFOBRAS:</b> {codINFOBRAS}
+            <b>Código INFOBRAS:</b> {infobrasCode}
           </Text>
           <Text py="2">
             <b>Entidad:</b> {entity}
@@ -83,16 +85,16 @@ export const ProjectByIdCard = ({ project }: ProjectByIdCardProps) => {
             <b>Tipo de obra:</b> {type}
           </Text>
           <Text py="2">
-            <b>Estado:</b> {state}
+            <b>Estado:</b> {status}
           </Text>
           <Text py="2">
-            <b>Fecha de inicio:</b> {initialDate}
+            <b>Fecha de inicio:</b> {startDate}
           </Text>
           <Text py="2">
-            <b>Fecha de fin:</b> {finalDate}
+            <b>Fecha de fin:</b> {endDate}
           </Text>
           <Text py="2">
-            <b>Ubicación:</b> {local}
+            <b>Ubicación:</b> {location}
           </Text>
           <Text py="2">
             <b>Dirección:</b> {address}
@@ -123,9 +125,9 @@ export const ProjectByIdCard = ({ project }: ProjectByIdCardProps) => {
               leftIcon={<CopyIcon />}
               variant="outline"
               colorScheme="blue"
-              onClick={() => copyToClipboard(codINFOBRAS)}
+              onClick={() => copyToClipboard(infobrasCode)}
             >
-              {codINFOBRAS}
+              {infobrasCode}
             </Button>
           </ButtonGroup>
         </CardFooter>

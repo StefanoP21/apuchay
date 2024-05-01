@@ -14,12 +14,14 @@ import {
   TableContainer,
 } from '@chakra-ui/react';
 
+import { Project } from '../..';
+
 interface ProjectTableProps {
-  project: any;
+  project: Project;
 }
 
 export const ProjectTable = ({ project }: ProjectTableProps) => {
-  const { enterprise, ruc, amount, person, dni, cip } = project;
+  const { amount, enterprise, ruc, contact, dni, cip } = project;
 
   return (
     <div>
@@ -98,7 +100,7 @@ export const ProjectTable = ({ project }: ProjectTableProps) => {
                 </Thead>
                 <Tbody>
                   <Tr>
-                    <Td textAlign="center">{person}</Td>
+                    <Td textAlign="center">{contact}</Td>
                   </Tr>
                 </Tbody>
                 <Thead>

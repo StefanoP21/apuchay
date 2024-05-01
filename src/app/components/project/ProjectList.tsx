@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@chakra-ui/react';
-import { type Project, ProjectCard } from '../';
+import { type Project, ProjectCard } from '../..';
 
 interface ProjectListProps {
   projects: Project[];
