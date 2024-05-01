@@ -2,18 +2,21 @@ import { ChatIcon, PlusSquareIcon, ViewIcon } from '@chakra-ui/icons';
 
 const features = [
   {
+    id: 1,
     heading: 'Fomentar la Participación Ciudadana',
     description:
       'Buscamos incrementar la participación de la comunidad en la supervisión y evaluación de proyectos en construcción. Empoderamos a los ciudadanos para que sean partícipes en el proceso, compartan sus observaciones, y contribuyan con su experiencia.',
     icon: ChatIcon,
   },
   {
+    id: 2,
     heading: 'Mejorar la Transparencia de los Proyectos ',
     description:
       'Garantizamos un acceso claro y comprensible a información detallada sobre presupuestos, plazos y progresos en proyectos de construcción. Nos esforzamos por ofrecer datos actualizados y precisos, promoviendo la transparencia en la gestión de fondos públicos.',
     icon: ViewIcon,
   },
   {
+    id: 3,
     heading: 'Fortalecer la Resiliencia Comunitaria',
     description:
       'Facilitamos la respuesta proactiva de la comunidad ante posibles riesgos asociados al Fenómeno del Niño. Buscamos proporcionar alertas tempranas, información relevante y recursos educativos para que las comunidades estén mejor preparadas.',
