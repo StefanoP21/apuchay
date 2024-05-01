@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import {
   Container,
   SimpleGrid,
@@ -11,6 +13,10 @@ import { ProjectList, ProjectSelect, useProjects } from '../';
 
 export const ProjectsPage = () => {
   const { isLoading, projects } = useProjects();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSearch = () => {
     console.log(isLoading);
