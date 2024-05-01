@@ -7,18 +7,21 @@ export { ProjectsPage } from './pages/ProjectsPage';
 export { ProjectByIdPage } from './pages/ProjectByIdPage';
 export { LearnPage } from './pages/LearnPage';
 
-export { ProjectSelect } from './components/ProjectSelect';
-export { ProjectList } from './components/ProjectList';
-export { ProjectCard } from './components/ProjectCard';
+export { HomeCard } from './components/home/HomeCard';
 
-export { ProjectByIdCard } from './components/ProjectByIdCard';
-export { ProjectTable } from './components/ProjectTable';
+export { ProjectSelect } from './components/project/ProjectSelect';
+export { ProjectList } from './components/project/ProjectList';
+export { ProjectCard } from './components/project/ProjectCard';
 
-export { LearnList } from './components/LearnList';
-export { LearnCard } from './components/LearnCard';
+export { ProjectByIdCard } from './components/projectById/ProjectByIdCard';
+export { ProjectTable } from './components/projectById/ProjectTable';
+
+export { LearnList } from './components/learn/LearnList';
+export { LearnCard } from './components/learn/LearnCard';
 
 export type { Project } from './interfaces/project';
 
 export * as projectActions from './services/actions';
 
 export { useProjects } from './hooks/useProjects';
+export { useProject } from './hooks/useProject';
