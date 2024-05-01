@@ -13,19 +13,21 @@ import {
 } from '@chakra-ui/react';
 import { InfoIcon } from '@chakra-ui/icons';
 
+import { Project } from '../';
+
 interface ProjectCardProps {
-  project: any;
+  project: Project;
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const { infobrasCode, imageUrl, name, entity, amount } = project;
 
   return (
-    <Card w={['xs', 'sm']} key={infobrasCode} borderRadius="3xl">
+    <Card w={['xs', 'sm']} borderRadius="3xl">
       <CardBody>
         <Image
           src={imageUrl}
-          alt={entity}
+          alt="obra"
           borderRadius="xl"
           w="sm"
           loading="lazy"
@@ -42,7 +44,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link to={'/'} key={infobrasCode}>
+        <Link to={`/projects/${infobrasCode}`}>
           <Button rightIcon={<InfoIcon />} variant="outline" colorScheme="red">
             Más información
           </Button>
