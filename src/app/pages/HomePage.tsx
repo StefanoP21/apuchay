@@ -73,9 +73,10 @@ export const HomePage = () => {
 
             <Container maxW={'5xl'} mt={12}>
               <Flex flexWrap="wrap" gridGap={6} justify="center">
-                {goal.features.map(({ heading, description, icon }) => {
+                {goal.features.map(({ id, heading, description, icon }) => {
                   return (
                     <Box
+                      key={id}
                       maxW={{ base: 'full', md: '275px' }}
                       w={'full'}
                       borderWidth="2px"

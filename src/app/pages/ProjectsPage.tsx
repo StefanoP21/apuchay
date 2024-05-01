@@ -7,11 +7,13 @@ import {
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 
-import { ProjectList, ProjectSelect } from '../';
+import { ProjectList, ProjectSelect, useProjects } from '../';
 
 export const ProjectsPage = () => {
+  const { isLoading, projects } = useProjects();
+
   const handleSearch = () => {
-    console.log('Search');
+    console.log(isLoading);
   };
 
   return (
@@ -47,7 +49,7 @@ export const ProjectsPage = () => {
         Buscar Obras
       </Button>
       <Divider marginY={10} />
-      <ProjectList projects={[]} />
+      <ProjectList projects={projects} />
     </Container>
   );
 };
