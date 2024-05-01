@@ -69,7 +69,7 @@ export const NavBar = () => {
               paddingTop={[8, 4, 0]}
             >
               {routes.map(({ to, label }) => (
-                <Link to={to}>
+                <Link to={to} key={to}>
                   <Text
                     display="block"
                     fontSize="xl"
