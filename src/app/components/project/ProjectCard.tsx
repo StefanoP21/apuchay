@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { InfoIcon } from '@chakra-ui/icons';
 
-import { Project } from '../..';
+import type { Project } from '../..';
 
 interface ProjectCardProps {
   project: Project;

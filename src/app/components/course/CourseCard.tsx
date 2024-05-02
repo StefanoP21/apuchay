@@ -14,21 +14,23 @@ import {
 } from '@chakra-ui/react';
 import { CheckCircleIcon, InfoIcon } from '@chakra-ui/icons';
 
-interface LearnCardProps {
-  course: any;
+import type { Course } from '../..';
+
+interface CourseCardProps {
+  course: Course;
 }
 
-export const LearnCard = ({ course }: LearnCardProps) => {
-  const { courseCod, imageUrl, title, description } = course;
-  const [isRegistered, setIsRegistered] = useState(false);
+export const CourseCard = ({ course }: CourseCardProps) => {
+  const { courseCode, imageUrl, name, description } = course;
+  const [isRegistered, setIsRegistered] = useState(true);
 
   return (
-    <Card w={['xs', 'sm']} key={courseCod} borderRadius="3xl">
+    <Card w={['xs', 'sm']} key={courseCode} borderRadius="3xl">
       <CardBody>
-        <Image src={imageUrl} alt={title} borderRadius="xl" w="sm" />
+        <Image src={imageUrl} alt={name} borderRadius="xl" w="sm" />
         <Stack mt="6" spacing="3">
           <Heading size="md" textAlign="center" textTransform="uppercase">
-            {title}
+            {name}
           </Heading>
           <Text fontSize="small" textAlign="justify">
             {description}
@@ -37,7 +39,10 @@ export const LearnCard = ({ course }: LearnCardProps) => {
       </CardBody>
       <Divider />
       <CardFooter justifyContent="center">
-        <Link to={isRegistered ? `/learn/${courseCod}` : '#'} key={courseCod}>
+        <Link
+          to={isRegistered ? `/courses/${courseCode}` : '#'}
+          key={courseCode}
+        >
           <Button
             leftIcon={isRegistered ? <CheckCircleIcon /> : <InfoIcon />}
             colorScheme={isRegistered ? 'green' : 'red'}
