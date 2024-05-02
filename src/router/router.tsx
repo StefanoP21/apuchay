@@ -4,8 +4,9 @@ import {
   AppLayout,
   HomePage,
   ProjectsPage,
-  LearnPage,
+  CoursePage,
   ProjectByIdPage,
+  CourseByIdPage,
 } from '../app';
 
 export const router = createBrowserRouter([
@@ -23,12 +24,16 @@ export const router = createBrowserRouter([
         element: <ProjectsPage />,
       },
       {
-        path: 'learn',
-        element: <LearnPage />,
-      },
-      {
         path: 'projects/:id',
         element: <ProjectByIdPage />,
+      },
+      {
+        path: 'courses',
+        element: <CoursePage />,
+      },
+      {
+        path: 'courses/:id',
+        element: <CourseByIdPage />,
       },
     ],
   },
