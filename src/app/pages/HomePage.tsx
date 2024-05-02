@@ -11,7 +11,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-import { hero, goal, HomeCard } from '../';
+import { hero, goal, HomeCard } from '..';
 
 export const HomePage = () => {
   return (

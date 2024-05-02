@@ -1,7 +1,9 @@
 import { Container, Heading } from '@chakra-ui/react';
-import { LearnList } from '../';
+import { CourseList, useCourses } from '..';
 
-export const LearnPage = () => {
+export const CoursePage = () => {
+  const { courses } = useCourses();
+
   return (
     <Container maxWidth="8xl" padding={10}>
       <Heading
@@ -13,7 +15,7 @@ export const LearnPage = () => {
       >
         ¡Capacítate con nosotros!
       </Heading>
-      <LearnList courses={[]} />
+      <CourseList courses={courses} />
     </Container>
   );
 };

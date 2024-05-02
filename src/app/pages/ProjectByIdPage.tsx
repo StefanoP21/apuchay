@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Container, Heading, Button } from '@chakra-ui/react';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
 
-import { ProjectByIdCard, ProjectTable, useProject } from '../';
+import { ProjectByIdCard, ProjectTable, useProject } from '..';
 
 export const ProjectByIdPage = () => {
   const { id } = useParams();
