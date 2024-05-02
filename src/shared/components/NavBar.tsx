@@ -16,7 +16,7 @@ const routes = [
     label: 'Obras',
   },
   {
-    to: '/learn',
+    to: '/courses',
     label: 'Capacítate',
   },
 ];
