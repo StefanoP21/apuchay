@@ -9,8 +9,6 @@ import {
   Button,
   Divider,
   Box,
-  Icon,
-  useColorModeValue,
 } from '@chakra-ui/react';
 
 import { hero, goal, HomeCard } from '../';

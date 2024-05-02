@@ -25,3 +25,4 @@ export * as projectActions from './services/actions';
 
 export { useProjects } from './hooks/useProjects';
 export { useProject } from './hooks/useProject';
+export { usePrefetchProject } from './hooks/usePrefetchProject';
