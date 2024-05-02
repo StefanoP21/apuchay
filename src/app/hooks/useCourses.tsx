@@ -1,16 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import { projectActions } from '..';
+import { courseActions } from '..';
 
-export const useProjects = () => {
+export const useCourses = () => {
   const {
     isLoading,
     isError,
     error,
-    data: projects = [],
+    data: courses = [],
     isFetching,
   } = useQuery({
-    queryKey: ['projects'],
-    queryFn: () => projectActions.getProjects(),
+    queryKey: ['courses'],
+    queryFn: () => courseActions.getCourses(),
     staleTime: 1000 * 60 * 60,
   });
 
@@ -18,7 +18,7 @@ export const useProjects = () => {
     isLoading,
     isError,
     error,
-    projects,
+    courses,
     isFetching,
   };
 };
