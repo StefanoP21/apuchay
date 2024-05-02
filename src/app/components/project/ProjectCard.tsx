@@ -17,9 +17,10 @@ import { Project } from '../..';
 
 interface ProjectCardProps {
   project: Project;
+  prefetchProject: (id: string) => void;
 }
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project, prefetchProject }: ProjectCardProps) => {
   const { infobrasCode, imageUrl, name, entity, amount } = project;
 
   return (
@@ -44,7 +45,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link to={`/projects/${infobrasCode}`}>
+        <Link
+          to={`/projects/${infobrasCode}`}
+          onMouseEnter={() => prefetchProject(infobrasCode)}
+        >
           <Button rightIcon={<InfoIcon />} variant="outline" colorScheme="red">
             Más información
           </Button>
