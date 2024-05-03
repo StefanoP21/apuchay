@@ -26,8 +26,10 @@ export type { Course } from './interfaces/course';
 export * as projectActions from './services/projectActions';
 export * as courseActions from './services/courseActions';
 
-export { useProjects } from './hooks/useProjects';
-export { useProject } from './hooks/useProject';
-export { usePrefetchProject } from './hooks/usePrefetchProject';
+export { useProjects } from './hooks/project/useProjects';
+export { useProject } from './hooks/project/useProject';
+export { usePrefetchProject } from './hooks/project/usePrefetchProject';
 
-export { useCourses } from './hooks/useCourses';
+export { useCourses } from './hooks/course/useCourses';
+export { useCourse } from './hooks/course/useCourse';
+export { usePrefetchCourse } from './hooks/course/usePrefetchCourse';
