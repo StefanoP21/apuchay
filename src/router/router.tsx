@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import { ErrorPage } from '../shared';
 import {
@@ -10,10 +10,11 @@ import {
   CourseByIdPage,
 } from '../app';
 import { SigninPage, SignupPage } from '../auth';
+import { ProtectedRoute } from '../auth/routes/ProtectedRoute';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/*',
     element: <AppLayout />,
     errorElement: <ErrorPage />,
     children: [
@@ -35,12 +36,21 @@ export const router = createBrowserRouter([
       },
       {
         path: 'courses/:id',
-        element: <CourseByIdPage />,
+        element: (
+          <ProtectedRoute>
+            <CourseByIdPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '*',
+        element: <Navigate to="/" />,
       },
     ],
   },
   {
-    path: '/auth',
+    path: '/auth/*',
+    errorElement: <ErrorPage />,
     children: [
       {
         path: 'signin',
@@ -49,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: 'signup',
         element: <SignupPage />,
+      },
+      {
+        path: '*',
+        element: <Navigate to="/auth/signin" />,
       },
     ],
   },
