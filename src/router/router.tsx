@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+
 import { ErrorPage } from '../shared';
 import {
   AppLayout,
@@ -8,6 +9,7 @@ import {
   ProjectByIdPage,
   CourseByIdPage,
 } from '../app';
+import { SigninPage, SignupPage } from '../auth';
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,19 @@ export const router = createBrowserRouter([
       {
         path: 'courses/:id',
         element: <CourseByIdPage />,
+      },
+    ],
+  },
+  {
+    path: '/auth',
+    children: [
+      {
+        path: 'signin',
+        element: <SigninPage />,
+      },
+      {
+        path: 'signup',
+        element: <SignupPage />,
       },
     ],
   },
