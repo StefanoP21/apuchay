@@ -8,7 +8,7 @@ import { ProjectByIdCard, ProjectTable, useProject } from '..';
 
 export const ProjectByIdPage = () => {
   const { id } = useParams();
-  const { project } = useProject({ id: id! });
+  const { project } = useProject({ id: +id! });
 
   useEffect(() => {
     window.scrollTo(0, 0);

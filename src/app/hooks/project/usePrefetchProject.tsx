@@ -4,7 +4,7 @@ import { projectActions } from '../..';
 export const usePrefetchProject = () => {
   const queryClient = useQueryClient();
 
-  const prefetchProject = (id: string) => {
+  const prefetchProject = (id: number) => {
     queryClient.prefetchQuery({
       queryKey: ['project', { id }],
       queryFn: () => projectActions.getProjectById(id),

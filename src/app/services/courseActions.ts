@@ -18,7 +18,7 @@ export const getCourses = async (): Promise<Course[]> => {
   }
 };
 
-export const getCourseById = async (id: string): Promise<Course> => {
+export const getCourseById = async (id: number): Promise<Course> => {
   try {
     const { data } = await api.get<{ ok: boolean; course: Course }>(
       `/api/courses/${id}`

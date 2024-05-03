@@ -18,7 +18,7 @@ export const getProjects = async (): Promise<Project[]> => {
   }
 };
 
-export const getProjectById = async (id: string): Promise<Project> => {
+export const getProjectById = async (id: number): Promise<Project> => {
   try {
     const { data } = await api.get<{ ok: boolean; project: Project }>(
       `/api/projects/${id}`

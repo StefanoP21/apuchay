@@ -1,6 +1,6 @@
 export interface Project {
   _id: string;
-  infobrasCode: string;
+  infobrasCode: number;
   imageUrl: string;
   name: string;
   entity: string;
@@ -10,11 +10,11 @@ export interface Project {
   endDate: string;
   location: string;
   address: string;
-  amount: string;
+  amount: number;
   enterprise: string;
-  ruc: string;
+  ruc: number;
   contact: string;
   dni: string;
-  cip: string;
+  cip: number;
   __v: number;
 }

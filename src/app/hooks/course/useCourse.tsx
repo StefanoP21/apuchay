@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { type Course, courseActions } from '../..';
 
 interface Options {
-  id: string;
+  id: number;
 }
 
 export const useCourse = ({ id }: Options) => {

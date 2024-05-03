@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { type Project, projectActions } from '../..';
 
 interface Options {
-  id: string;
+  id: number;
 }
 
 export const useProject = ({ id }: Options) => {

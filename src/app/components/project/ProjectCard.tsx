@@ -17,7 +17,7 @@ import type { Project } from '../..';
 
 interface ProjectCardProps {
   project: Project;
-  prefetchProject: (id: string) => void;
+  prefetchProject: (id: number) => void;
 }
 
 export const ProjectCard = ({ project, prefetchProject }: ProjectCardProps) => {
