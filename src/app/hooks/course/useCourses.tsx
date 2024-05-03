@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { courseActions } from '..';
+import { courseActions } from '../..';
 
 export const useCourses = () => {
   const {

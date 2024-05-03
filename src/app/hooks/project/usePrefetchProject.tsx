@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { projectActions } from '..';
+import { projectActions } from '../..';
 
 export const usePrefetchProject = () => {
   const queryClient = useQueryClient();
