@@ -18,14 +18,15 @@ import type { Course } from '../..';
 
 interface CourseCardProps {
   course: Course;
+  prefetchCourse: (id: number) => void;
 }
 
-export const CourseCard = ({ course }: CourseCardProps) => {
+export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
   const { courseCode, imageUrl, name, description } = course;
   const [isRegistered, setIsRegistered] = useState(true);
 
   return (
-    <Card w={['xs', 'sm']} key={courseCode} borderRadius="3xl">
+    <Card w={['xs', 'sm']} borderRadius="3xl">
       <CardBody>
         <Image src={imageUrl} alt={name} borderRadius="xl" w="sm" />
         <Stack mt="6" spacing="3">
@@ -41,7 +42,7 @@ export const CourseCard = ({ course }: CourseCardProps) => {
       <CardFooter justifyContent="center">
         <Link
           to={isRegistered ? `/courses/${courseCode}` : '#'}
-          key={courseCode}
+          onMouseEnter={() => prefetchCourse(courseCode)}
         >
           <Button
             leftIcon={isRegistered ? <CheckCircleIcon /> : <InfoIcon />}
