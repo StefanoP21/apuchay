@@ -125,7 +125,7 @@ export const ProjectByIdCard = ({ project }: ProjectByIdCardProps) => {
               leftIcon={<CopyIcon />}
               variant="outline"
               colorScheme="blue"
-              onClick={() => copyToClipboard(infobrasCode)}
+              onClick={() => copyToClipboard(infobrasCode.toString())}
             >
               {infobrasCode}
             </Button>

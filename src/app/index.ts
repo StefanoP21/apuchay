@@ -20,8 +20,13 @@ export { ProjectTable } from './components/projectById/ProjectTable';
 export { CourseList } from './components/course/CourseList';
 export { CourseCard } from './components/course/CourseCard';
 
+export { CourseAccordion } from './components/courseById/CourseAccordion';
+export { CourseAccordionItem } from './components/courseById/CourseAccordionItem';
+export { CourseAccordionList } from './components/courseById/CourseAccordionList';
+export { CourseVideo } from './components/courseById/CourseVideo';
+
 export type { Project } from './interfaces/project';
-export type { Course } from './interfaces/course';
+export type { Course, Topic, Content } from './interfaces/course';
 
 export * as projectActions from './services/projectActions';
 export * as courseActions from './services/courseActions';

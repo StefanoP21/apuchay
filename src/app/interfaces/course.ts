@@ -10,13 +10,13 @@ export interface Course {
   __v: number;
 }
 
-interface Topic {
+export interface Topic {
   topic: string;
   contents: Content[];
   _id: string;
 }
 
-interface Content {
+export interface Content {
   content: string;
   _id: string;
 }
