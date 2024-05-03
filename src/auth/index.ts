@@ -1,4 +1,4 @@
-export { SigninPage } from './pages/SigninPage';
-export { SignupPage } from './pages/SignupPage';
+export { SignInPage } from './pages/SignInPage';
+export { SignUpPage } from './pages/SignUpPage';
 
 export { PasswordField } from './components/PasswordField';

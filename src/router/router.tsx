@@ -9,7 +9,7 @@ import {
   ProjectByIdPage,
   CourseByIdPage,
 } from '../app';
-import { SigninPage, SignupPage } from '../auth';
+import { SignInPage, SignUpPage } from '../auth';
 import { ProtectedRoute } from '../auth/routes/ProtectedRoute';
 
 export const router = createBrowserRouter([
@@ -54,11 +54,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'signin',
-        element: <SigninPage />,
+        element: <SignInPage />,
       },
       {
         path: 'signup',
-        element: <SignupPage />,
+        element: <SignUpPage />,
       },
       {
         path: '*',

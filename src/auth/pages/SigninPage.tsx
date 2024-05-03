@@ -17,7 +17,7 @@ import {
 import { PasswordField } from '..';
 import svg from '/jamstack.svg';
 
-export const SigninPage = () => (
+export const SignInPage = () => (
   <Container
     maxW="lg"
     py={{ base: '12', md: '24' }}
