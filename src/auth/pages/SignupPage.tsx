@@ -14,10 +14,26 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-import { PasswordField } from '..';
+import { InputField, PasswordField, UserForm } from '..';
 import svg from '/jamstack.svg';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+
+const defaultValues = {
+  name: '',
+  lastname: '',
+  email: '',
+  password: '',
+};
 
 export const SignUpPage = () => {
+  const { control, formState, handleSubmit } = useForm<UserForm>({
+    defaultValues,
+  });
+
+  const onSubmit: SubmitHandler<UserForm> = (data) => {
+    console.log(data);
+  };
+
   return (
     <Container
       maxW="lg"
@@ -49,25 +65,101 @@ export const SignUpPage = () => {
         >
           <Stack spacing="6">
             <Stack spacing="5">
-              <FormControl>
-                <FormLabel htmlFor="name">Nombres</FormLabel>
-                <Input id="name" type="text" />
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="lastname">Apellidos</FormLabel>
-                <Input id="lastname" type="text" />
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="email">Correo electrónico</FormLabel>
-                <Input id="email" type="email" />
-              </FormControl>
-              {/* <PasswordField /> */}
+              <Controller
+                control={control}
+                name="name"
+                rules={{
+                  required: {
+                    value: true,
+                    message: 'El nombre es obligatorio',
+                  },
+                }}
+                render={({ field }) => (
+                  <InputField
+                    id="name"
+                    label="Nombre"
+                    type="text"
+                    value={field.value}
+                    onChange={field.onChange}
+                    formState={formState}
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="lastname"
+                rules={{
+                  required: {
+                    value: true,
+                    message: 'El apellido es obligatorio',
+                  },
+                }}
+                render={({ field }) => (
+                  <InputField
+                    id="lastname"
+                    label="Apellidos"
+                    type="text"
+                    value={field.value}
+                    onChange={field.onChange}
+                    formState={formState}
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="email"
+                rules={{
+                  required: {
+                    value: true,
+                    message: 'El correo es obligatorio',
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Correo inválido',
+                  },
+                }}
+                render={({ field }) => (
+                  <InputField
+                    id="email"
+                    label="Correo electrónico"
+                    type="email"
+                    value={field.value}
+                    onChange={field.onChange}
+                    formState={formState}
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="password"
+                rules={{
+                  required: {
+                    value: true,
+                    message: 'La contraseña es obligatoria',
+                  },
+                  minLength: {
+                    value: 6,
+                    message: 'La contraseña debe tener al menos 6 caracteres',
+                  },
+                }}
+                render={({ field }) => (
+                  <PasswordField
+                    id="password"
+                    label="Contraseña"
+                    value={field.value}
+                    onChange={field.onChange}
+                    formState={formState}
+                  />
+                )}
+              />
             </Stack>
             <HStack justify="space-between">
               <Checkbox defaultChecked>Recuerdame</Checkbox>
             </HStack>
             <Stack spacing="6">
-              <Button colorScheme="red">Registrarse</Button>
+              <Button colorScheme="red" onClick={handleSubmit(onSubmit)}>
+                Registrarse
+              </Button>
             </Stack>
           </Stack>
         </Box>
