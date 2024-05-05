@@ -10,8 +10,6 @@ export const useSignIn = () => {
   const mutation = useMutation({
     mutationFn: authActions.signIn,
     onSuccess: (user, _variables, _context) => {
-      console.log(user);
-
       queryClient.setQueryData(
         ['user', { name: user.name, uid: user.uid }],
         user
@@ -20,9 +18,7 @@ export const useSignIn = () => {
       navigate('/courses');
     },
     onError: (error, _variables, _context) => {
-      console.log(error);
-
-      queryClient.setQueryData(['user', {}], {});
+      queryClient.setQueryData(['user'], error);
     },
   });
 
