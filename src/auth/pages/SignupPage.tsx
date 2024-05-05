@@ -61,7 +61,7 @@ export const SignUpPage = () => {
                 <FormLabel htmlFor="email">Correo electrónico</FormLabel>
                 <Input id="email" type="email" />
               </FormControl>
-              <PasswordField />
+              {/* <PasswordField /> */}
             </Stack>
             <HStack justify="space-between">
               <Checkbox defaultChecked>Recuerdame</Checkbox>

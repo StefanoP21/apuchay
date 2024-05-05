@@ -6,18 +6,14 @@ import {
   Button,
   Checkbox,
   Container,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
   Heading,
   HStack,
-  Input,
   Stack,
   Text,
 } from '@chakra-ui/react';
 
 import svg from '/jamstack.svg';
-import { PasswordField, useSignIn, type UserForm } from '..';
+import { InputField, PasswordField, useSignIn, type UserForm } from '..';
 
 const defaultValues = {
   email: '',
@@ -64,39 +60,31 @@ export const SignInPage = () => {
         >
           <Stack spacing="6">
             <Stack spacing="5">
-              <FormControl isInvalid={!!formState.errors.email}>
-                <Controller
-                  control={control}
-                  name="email"
-                  rules={{
-                    required: {
-                      value: true,
-                      message: 'El correo es obligatorio',
-                    },
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Correo inválido',
-                    },
-                  }}
-                  render={({ field }) => (
-                    <>
-                      <FormLabel htmlFor="email">Correo electrónico</FormLabel>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={field.value}
-                        onChange={field.onChange}
-                      />
-                      {formState.errors.email && (
-                        <FormErrorMessage>
-                          {formState.errors.email.message}
-                        </FormErrorMessage>
-                      )}
-                    </>
-                  )}
-                />
-              </FormControl>
+              <Controller
+                control={control}
+                name="email"
+                rules={{
+                  required: {
+                    value: true,
+                    message: 'El correo es obligatorio',
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Correo inválido',
+                  },
+                }}
+                render={({ field }) => (
+                  <InputField
+                    id="email"
+                    name="email"
+                    label="Correo electrónico"
+                    type="email"
+                    value={field.value}
+                    onChange={field.onChange}
+                    formState={formState}
+                  />
+                )}
+              />
 
               <Controller
                 control={control}
@@ -115,6 +103,7 @@ export const SignInPage = () => {
                   <PasswordField
                     id="password"
                     name="password"
+                    label="Contraseña"
                     value={field.value}
                     onChange={field.onChange}
                     formState={formState}
