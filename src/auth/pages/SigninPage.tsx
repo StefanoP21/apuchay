@@ -10,10 +10,12 @@ import {
   HStack,
   Stack,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 
 import svg from '/jamstack.svg';
 import { InputField, PasswordField, useSignIn, type UserForm } from '..';
+import { useEffect } from 'react';
 
 const defaultValues = {
   email: '',
@@ -22,13 +24,28 @@ const defaultValues = {
 
 export const SignInPage = () => {
   const mutation = useSignIn();
+  const { error, isError, isPending, isSuccess, mutate } = mutation;
+  const toast = useToast();
   const { control, formState, handleSubmit } = useForm<UserForm>({
     defaultValues,
   });
 
   const onSubmit: SubmitHandler<UserForm> = (data) => {
-    mutation.mutate(data);
+    mutate(data);
   };
+
+  useEffect(() => {
+    if (isError) {
+      toast({
+        title: 'Error al iniciar sesión',
+        description: error?.message || 'Ocurrió un error inesperado',
+        position: 'top-right',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  }, [isSuccess, isError, toast, error]);
 
   return (
     <Container
@@ -110,13 +127,14 @@ export const SignInPage = () => {
             </Stack>
             <HStack justify="space-between">
               <Checkbox defaultChecked>Recuerdame</Checkbox>
-              <Button variant="text" size="sm">
-                ¿Olvidaste tu contraseña?
-              </Button>
             </HStack>
             <Stack spacing="6">
-              <Button colorScheme="red" onClick={handleSubmit(onSubmit)}>
-                Iniciar sesión
+              <Button
+                colorScheme="red"
+                onClick={handleSubmit(onSubmit)}
+                isDisabled={isPending}
+              >
+                {isPending ? 'Verificando sesión...' : 'Iniciar sesión'}
               </Button>
             </Stack>
           </Stack>
