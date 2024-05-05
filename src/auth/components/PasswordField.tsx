@@ -1,7 +1,10 @@
 import { forwardRef, useRef } from 'react';
+import { FormState } from 'react-hook-form';
+import { UserForm } from '../interfaces/userForm';
 
 import {
   FormControl,
+  FormErrorMessage,
   FormLabel,
   IconButton,
   Input,
@@ -13,8 +16,13 @@ import {
 } from '@chakra-ui/react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 
-export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
+interface PasswordFieldProps extends InputProps {
+  formState: FormState<UserForm>;
+}
+
+export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
   (props, ref) => {
+    const { id, name, value, onChange, formState } = props;
     const { isOpen, onToggle } = useDisclosure();
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -27,7 +35,7 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <FormControl>
+      <FormControl isInvalid={!!formState.errors.password}>
         <FormLabel htmlFor="password">Contraseña</FormLabel>
         <InputGroup>
           <InputRightElement>
@@ -39,15 +47,20 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
             />
           </InputRightElement>
           <Input
-            id="password"
+            id={id}
             ref={mergeRef}
-            name="password"
+            name={name}
             type={isOpen ? 'text' : 'password'}
             autoComplete="current-password"
-            required
-            {...props}
+            value={value}
+            onChange={onChange}
           />
         </InputGroup>
+        {formState.errors.password && (
+          <FormErrorMessage>
+            {formState.errors.password.message}
+          </FormErrorMessage>
+        )}
       </FormControl>
     );
   }
