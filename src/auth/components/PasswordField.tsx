@@ -1,6 +1,5 @@
 import { forwardRef, useRef } from 'react';
 import { FormState } from 'react-hook-form';
-import { UserForm } from '../interfaces/userForm';
 
 import {
   FormControl,
@@ -16,13 +15,16 @@ import {
 } from '@chakra-ui/react';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 
+import { UserForm } from '..';
+
 interface PasswordFieldProps extends InputProps {
+  label: string;
   formState: FormState<UserForm>;
 }
 
 export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
   (props, ref) => {
-    const { id, name, value, onChange, formState } = props;
+    const { id, name, label, value, onChange, formState } = props;
     const { isOpen, onToggle } = useDisclosure();
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,7 +38,7 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
 
     return (
       <FormControl isInvalid={!!formState.errors.password}>
-        <FormLabel htmlFor="password">Contraseña</FormLabel>
+        <FormLabel htmlFor={name}>{label}</FormLabel>
         <InputGroup>
           <InputRightElement>
             <IconButton
@@ -65,5 +67,3 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
     );
   }
 );
-
-PasswordField.displayName = 'PasswordField';
