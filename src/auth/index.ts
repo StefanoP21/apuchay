@@ -1,6 +1,7 @@
 export { SignInPage } from './pages/SignInPage';
 export { SignUpPage } from './pages/SignUpPage';
 
+export { InputField } from './components/InputField';
 export { PasswordField } from './components/PasswordField';
 
 export type { User } from './interfaces/user';
