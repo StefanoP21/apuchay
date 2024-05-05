@@ -13,26 +13,21 @@ import { UserForm } from '..';
 
 interface PasswordFieldProps extends InputProps {
   label: string;
+  id: keyof UserForm;
   formState: FormState<UserForm>;
 }
 
 export const InputField: React.FC<PasswordFieldProps> = (props) => {
-  const { id, name, label, type, value, onChange, formState } = props;
+  const { id, label, type, value, onChange, formState } = props;
 
   return (
-    <FormControl isInvalid={!!formState.errors.email}>
-      <FormLabel htmlFor={name}>{label}</FormLabel>
+    <FormControl isInvalid={!!formState.errors[id]}>
+      <FormLabel htmlFor={id}>{label}</FormLabel>
       <InputGroup>
-        <Input
-          id={id}
-          name={name}
-          type={type}
-          value={value}
-          onChange={onChange}
-        />
+        <Input id={id} type={type} value={value} onChange={onChange} />
       </InputGroup>
-      {formState.errors.email && (
-        <FormErrorMessage>{formState.errors.email.message}</FormErrorMessage>
+      {formState.errors[id] && (
+        <FormErrorMessage>{formState.errors[id].message}</FormErrorMessage>
       )}
     </FormControl>
   );
