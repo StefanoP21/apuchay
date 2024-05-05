@@ -76,7 +76,6 @@ export const SignInPage = () => {
                 render={({ field }) => (
                   <InputField
                     id="email"
-                    name="email"
                     label="Correo electrónico"
                     type="email"
                     value={field.value}
@@ -102,7 +101,6 @@ export const SignInPage = () => {
                 render={({ field }) => (
                   <PasswordField
                     id="password"
-                    name="password"
                     label="Contraseña"
                     value={field.value}
                     onChange={field.onChange}
