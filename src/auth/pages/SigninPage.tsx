@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
@@ -15,7 +16,6 @@ import {
 
 import svg from '/jamstack.svg';
 import { InputField, PasswordField, useSignIn, type UserForm } from '..';
-import { useEffect } from 'react';
 
 const defaultValues = {
   email: '',

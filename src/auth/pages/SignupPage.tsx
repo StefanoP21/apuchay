@@ -1,22 +1,21 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 import {
   Box,
   Button,
   Checkbox,
   Container,
-  FormControl,
-  FormLabel,
   Heading,
   HStack,
-  Input,
   Stack,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 
-import { InputField, PasswordField, UserForm } from '..';
 import svg from '/jamstack.svg';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { InputField, PasswordField, useSignUp, type UserForm } from '..';
 
 const defaultValues = {
   name: '',
@@ -26,13 +25,29 @@ const defaultValues = {
 };
 
 export const SignUpPage = () => {
+  const mutation = useSignUp();
+  const { error, isError, isPending, isSuccess, mutate } = mutation;
+  const toast = useToast();
   const { control, formState, handleSubmit } = useForm<UserForm>({
     defaultValues,
   });
 
   const onSubmit: SubmitHandler<UserForm> = (data) => {
-    console.log(data);
+    mutate(data);
   };
+
+  useEffect(() => {
+    if (isError) {
+      toast({
+        title: 'Error al registrarse',
+        description: error?.message || 'Ocurrió un error inesperado',
+        position: 'top-right',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  }, [isSuccess, isError, toast, error]);
 
   return (
     <Container
@@ -157,8 +172,12 @@ export const SignUpPage = () => {
               <Checkbox defaultChecked>Recuerdame</Checkbox>
             </HStack>
             <Stack spacing="6">
-              <Button colorScheme="red" onClick={handleSubmit(onSubmit)}>
-                Registrarse
+              <Button
+                colorScheme="red"
+                onClick={handleSubmit(onSubmit)}
+                isDisabled={isPending}
+              >
+                {isPending ? 'Registrando...' : 'Registrarse'}
               </Button>
             </Stack>
           </Stack>
