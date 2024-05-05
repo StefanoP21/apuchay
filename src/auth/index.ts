@@ -10,3 +10,4 @@ export type { UserForm } from './interfaces/userForm';
 export * as authActions from './services/authActions';
 
 export { useSignIn } from './hooks/useSignIn';
+export { useSignUp } from './hooks/useSignUp';
