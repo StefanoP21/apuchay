@@ -64,7 +64,7 @@ export const SignInPage = () => {
         >
           <Stack spacing="6">
             <Stack spacing="5">
-              <FormControl isInvalid={formState.errors.email ? true : false}>
+              <FormControl isInvalid={!!formState.errors.email}>
                 <Controller
                   control={control}
                   name="email"
@@ -83,6 +83,7 @@ export const SignInPage = () => {
                       <FormLabel htmlFor="email">Correo electrónico</FormLabel>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         value={field.value}
                         onChange={field.onChange}
@@ -116,6 +117,7 @@ export const SignInPage = () => {
                     name="password"
                     value={field.value}
                     onChange={field.onChange}
+                    formState={formState}
                   />
                 )}
               />
