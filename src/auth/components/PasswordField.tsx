@@ -19,12 +19,13 @@ import { UserForm } from '..';
 
 interface PasswordFieldProps extends InputProps {
   label: string;
+  id: keyof UserForm;
   formState: FormState<UserForm>;
 }
 
 export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
   (props, ref) => {
-    const { id, name, label, value, onChange, formState } = props;
+    const { id, label, value, onChange, formState } = props;
     const { isOpen, onToggle } = useDisclosure();
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -37,8 +38,8 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
     };
 
     return (
-      <FormControl isInvalid={!!formState.errors.password}>
-        <FormLabel htmlFor={name}>{label}</FormLabel>
+      <FormControl isInvalid={!!formState.errors[id]}>
+        <FormLabel htmlFor={id}>{label}</FormLabel>
         <InputGroup>
           <InputRightElement>
             <IconButton
@@ -51,17 +52,14 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
           <Input
             id={id}
             ref={mergeRef}
-            name={name}
             type={isOpen ? 'text' : 'password'}
             autoComplete="current-password"
             value={value}
             onChange={onChange}
           />
         </InputGroup>
-        {formState.errors.password && (
-          <FormErrorMessage>
-            {formState.errors.password.message}
-          </FormErrorMessage>
+        {formState.errors[id] && (
+          <FormErrorMessage>{formState.errors[id].message}</FormErrorMessage>
         )}
       </FormControl>
     );
