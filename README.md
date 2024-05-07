@@ -1,4 +1,4 @@
-# Apuchay App
+# Apuchay
 
 ![Imagen de previsualización](public/apuchay.png)
 
