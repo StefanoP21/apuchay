@@ -65,7 +65,7 @@ yarn build
 
 ### Autor
 
-- [Stefano Palomino](https://github.com/StefanoP21)
+- [Stefano Palomino](https://stefano.vercel.app/)
 
 ### Licencia
 
