@@ -60,8 +60,8 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
             onChange={onChange}
           />
         </InputGroup>
-        {formState.errors[id] && (
-          <FormErrorMessage>{formState.errors[id].message}</FormErrorMessage>
+        {formState.errors[id]?.message && (
+          <FormErrorMessage>{formState.errors[id]?.message}</FormErrorMessage>
         )}
       </FormControl>
     );

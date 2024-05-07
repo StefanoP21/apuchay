@@ -29,8 +29,8 @@ export const InputField: React.FC<PasswordFieldProps> = (props) => {
       <InputGroup>
         <Input id={id} type={type} value={value} onChange={onChange} />
       </InputGroup>
-      {formState.errors[id] && (
-        <FormErrorMessage>{formState.errors[id].message}</FormErrorMessage>
+      {formState.errors[id]?.message && (
+        <FormErrorMessage>{formState.errors[id]?.message}</FormErrorMessage>
       )}
     </FormControl>
   );
