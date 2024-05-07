@@ -5,6 +5,7 @@ import { Container, Flex, Box, Text, Icon, Stack } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import svg from '/jamstack-w.svg';
+import { Profile } from './Profile';
 
 const routes = [
   {
@@ -82,6 +83,7 @@ export const NavBar = () => {
                   </Text>
                 </Link>
               ))}
+              <Profile name="Stefano" />
             </Stack>
           </Box>
         </Flex>
