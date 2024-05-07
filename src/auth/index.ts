@@ -1,5 +1,5 @@
-export { SignInPage } from './pages/SignInPage';
-export { SignUpPage } from './pages/SignUpPage';
+export { SignInPage } from './pages/SigninPage';
+export { SignUpPage } from './pages/SignupPage';
 
 export { InputField } from './components/InputField';
 export { PasswordField } from './components/PasswordField';

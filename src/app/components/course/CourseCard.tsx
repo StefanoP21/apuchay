@@ -23,7 +23,7 @@ interface CourseCardProps {
 
 export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
   const { courseCode, imageUrl, name, description } = course;
-  const [isRegistered, setIsRegistered] = useState(true);
+  const [isRegistered] = useState(true);
 
   return (
     <Card w={['xs', 'sm']} borderRadius="3xl">

@@ -12,8 +12,11 @@ import {
 import { UserForm } from '..';
 
 interface PasswordFieldProps extends InputProps {
-  label: string;
   id: keyof UserForm;
+  label: string;
+  type: string;
+  value: string | number | readonly string[];
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formState: FormState<UserForm>;
 }
 
