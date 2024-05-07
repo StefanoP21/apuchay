@@ -42,8 +42,7 @@ export const renewToken = async (): Promise<User> => {
   const token = localStorage.getItem('token');
 
   if (!token) {
-    //! log out
-    console.log('No token found');
+    throw new Error('No token found');
   }
 
   try {
