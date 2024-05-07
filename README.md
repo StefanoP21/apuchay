@@ -1,30 +1,72 @@
-# React + TypeScript + Vite
+# Apuchay App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Imagen de previsualización](public/apuchay.png)
 
-Currently, two official plugins are available:
+Aplicación web para mejorar el control de las obras públicas. La aplicación cuenta con una interfaz orientada al ciudadano común. Además, cuenta con un sistema de autenticación de usuarios, protección de rutas, reportes de obras y cursos de capacitación online.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Instalación
 
-## Expanding the ESLint configuration
+Clona el repositorio y navega hasta el directorio:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/StefanoP21/apuchay.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Instala las dependencias:
+
+```bash
+npm install
+#or
+yarn add
+```
+
+### Variables de Entorno
+
+Cree un archivo .env en la carpeta raíz de su proyecto y añada sus variables. Consulte .env.template para obtener ayuda.
+
+### Ejecución en modo de desarrollo
+
+Para iniciar la aplicación en modo de desarrollo, ejecuta:
+
+```bash
+npm run dev
+#or
+yarn dev
+```
+
+### Ejecución de las pruebas
+
+Para iniciar las pruebas de la aplicación, ejecuta:
+
+```bash
+npm run test
+#or
+yarn test
+```
+
+### Ejecución en modo de producción
+
+Para construir la aplicación para producción, ejecuta:
+
+```bash
+npm run build
+#or
+yarn build
+```
+
+### Tecnologías
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://es.react.dev/)
+- [React Router](https://reactrouter.com/)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Chakra UI](https://chakra-ui.com/)
+- [React Hook Form](https://react-hook-form.com/)
+
+### Autor
+
+- [Stefano Palomino](https://github.com/StefanoP21)
+
+### Licencia
+
+Este proyecto está disponible para su uso bajo la Licencia MIT.
