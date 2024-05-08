@@ -1,10 +1,16 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
-export const ProtectedRoute = ({ children }: PropsWithChildren) => {
-  const token = localStorage.getItem('token') as string;
+import { useCheckAuth } from '..';
 
-  if (!token) {
+export const ProtectedRoute = ({ children }: PropsWithChildren) => {
+  const mutation = useCheckAuth();
+
+  useEffect(() => {
+    mutation.mutate();
+  }, []);
+
+  if (mutation.isError) {
     return <Navigate to="/auth/signin" />;
   }
 
