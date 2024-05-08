@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Flex, Box, Text, Icon, Stack } from '@chakra-ui/react';
@@ -6,6 +6,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import svg from '/jamstack-w.svg';
 import { Profile } from './Profile';
+import { useCheckAuth } from '../../auth';
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const mutation = useCheckAuth();
+
+  useEffect(() => {
+    mutation.mutate();
+  }, []);
 
   return (
     <div style={{ background: '#C53030', color: 'white' }}>
@@ -83,7 +89,8 @@ export const NavBar = () => {
                   </Text>
                 </Link>
               ))}
-              <Profile name="Stefano" />
+
+              {mutation.isSuccess && <Profile name={mutation.data.name} />}
             </Stack>
           </Box>
         </Flex>

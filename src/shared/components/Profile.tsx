@@ -13,6 +13,11 @@ interface ProfileProps {
 }
 
 export const Profile = ({ name }: ProfileProps) => {
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  };
+
   return (
     <Menu>
       <MenuButton
@@ -36,6 +41,7 @@ export const Profile = ({ name }: ProfileProps) => {
           bg="red.600"
           icon={<BiLogOut />}
           _hover={{ bg: 'red.800', rounded: 'full' }}
+          onClick={handleLogout}
         >
           Cerrar sesión
         </MenuItem>
