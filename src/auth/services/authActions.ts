@@ -38,10 +38,11 @@ export const signUp = async (user: UserForm): Promise<User> => {
   }
 };
 
-export const renewToken = async (): Promise<User> => {
+export const checkAuth = async (): Promise<User> => {
   const token = localStorage.getItem('token');
 
   if (!token) {
+    localStorage.clear();
     throw new Error('No token found');
   }
 
@@ -53,6 +54,7 @@ export const renewToken = async (): Promise<User> => {
 
     return data;
   } catch (error) {
+    localStorage.clear();
     const response = (error as AxiosError).response as AxiosResponse<User>;
     const { data } = response;
 
