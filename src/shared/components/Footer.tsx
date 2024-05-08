@@ -33,7 +33,7 @@ export const Footer = () => {
             APUCHAY
           </Text>
         </Box>
-        <Text>© 2023 Hackathon CGR - Stefano Palomino</Text>
+        <Text>© 2023 Hackathon - Stefano Palomino</Text>
         <Stack direction={'row'} spacing={6}>
           <chakra.button
             bg={useColorModeValue('blackAlpha.100', 'blackAlpha.200')}
