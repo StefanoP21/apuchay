@@ -7,13 +7,13 @@ export const useCheckAuth = () => {
 
   const mutation = useMutation({
     mutationFn: authActions.checkAuth,
-    onSuccess: (user, _variables, _context) => {
+    onSuccess: (user) => {
       queryClient.setQueryData(
         ['user', { name: user.name, uid: user.uid }],
         user
       );
     },
-    onError: (error, _variables, _context) => {
+    onError: (error) => {
       queryClient.setQueryData(['user'], error);
     },
   });
