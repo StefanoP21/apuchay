@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -15,6 +15,7 @@ import {
 import { CheckCircleIcon, InfoIcon } from '@chakra-ui/icons';
 
 import type { Course } from '../..';
+import { useCheckAuth } from '../../../auth';
 
 interface CourseCardProps {
   course: Course;
@@ -23,7 +24,11 @@ interface CourseCardProps {
 
 export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
   const { courseCode, imageUrl, name, description } = course;
-  const [isRegistered] = useState(true);
+  const mutation = useCheckAuth();
+
+  useEffect(() => {
+    mutation.mutate();
+  }, []);
 
   return (
     <Card w={['xs', 'sm']} borderRadius="3xl">
@@ -41,17 +46,16 @@ export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
       <Divider />
       <CardFooter justifyContent="center">
         <Link
-          to={isRegistered ? `/courses/${courseCode}` : '#'}
+          to={mutation.isSuccess ? `/courses/${courseCode}` : `/auth`}
           onMouseEnter={() => prefetchCourse(courseCode)}
         >
           <Button
-            leftIcon={isRegistered ? <CheckCircleIcon /> : <InfoIcon />}
-            colorScheme={isRegistered ? 'green' : 'red'}
+            leftIcon={mutation.isSuccess ? <CheckCircleIcon /> : <InfoIcon />}
+            colorScheme={mutation.isSuccess ? 'green' : 'red'}
             size="md"
             variant="solid"
-            onClick={() => {}}
           >
-            {isRegistered ? 'Ver curso' : 'Registrarse para ver curso'}
+            {mutation.isSuccess ? 'Ver curso' : 'Registrarse para ver curso'}
           </Button>
         </Link>
       </CardFooter>
