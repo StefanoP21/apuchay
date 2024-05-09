@@ -11,9 +11,10 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-import { hero, goal, HomeCard } from '..';
+import { hero, goal, HomeCard, usePrefetchProjects } from '..';
 
 export const HomePage = () => {
+  const { prefetchProjects } = usePrefetchProjects();
   return (
     <>
       <Container maxW={'8xl'} paddingX={10}>
@@ -37,7 +38,7 @@ export const HomePage = () => {
             {hero.description}
           </Text>
 
-          <Link to="/projects">
+          <Link to="/projects" onMouseEnter={() => prefetchProjects()}>
             <Button
               rounded={'full'}
               p={6}
