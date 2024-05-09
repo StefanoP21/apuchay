@@ -13,12 +13,14 @@ export { HomeCard } from './components/home/HomeCard';
 export { ProjectSelect } from './components/project/ProjectSelect';
 export { ProjectList } from './components/project/ProjectList';
 export { ProjectCard } from './components/project/ProjectCard';
+export { ProjectSkeleton } from './components/project/ProjectSkeleton';
 
 export { ProjectByIdCard } from './components/projectById/ProjectByIdCard';
 export { ProjectTable } from './components/projectById/ProjectTable';
 
 export { CourseList } from './components/course/CourseList';
 export { CourseCard } from './components/course/CourseCard';
+export { CourseSkeleton } from './components/course/CourseSkeleton';
 
 export { CourseAccordion } from './components/courseById/CourseAccordion';
 export { CourseAccordionItem } from './components/courseById/CourseAccordionItem';
