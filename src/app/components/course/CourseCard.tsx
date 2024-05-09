@@ -37,9 +37,20 @@ export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
       onMouseEnter={() => prefetchCourse(courseCode)}
     >
       <CardBody>
-        <Image src={imageUrl} alt={name} borderRadius="xl" w="sm" />
+        <Image
+          src={imageUrl}
+          alt={name}
+          borderRadius="xl"
+          w="sm"
+          height="345px"
+        />
         <Stack mt="6" spacing="3">
-          <Heading size="md" textAlign="center" textTransform="uppercase">
+          <Heading
+            size="md"
+            textAlign="center"
+            textTransform="uppercase"
+            height="50px"
+          >
             {name}
           </Heading>
           <Text fontSize="small" textAlign="justify">
