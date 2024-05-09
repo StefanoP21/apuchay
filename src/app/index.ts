@@ -34,6 +34,7 @@ export * as courseActions from './services/courseActions';
 export { useProjects } from './hooks/project/useProjects';
 export { useProject } from './hooks/project/useProject';
 export { usePrefetchProject } from './hooks/project/usePrefetchProject';
+export { usePrefetchProjects } from './hooks/project/usePrefetchProjects';
 
 export { useCourses } from './hooks/course/useCourses';
 export { useCourse } from './hooks/course/useCourse';
