@@ -7,7 +7,7 @@ export const ProjectSkeleton = () => {
         <Box key={key} w={['xs', 'sm']} borderRadius="3xl" p="6">
           <Skeleton borderRadius="xl" h="220px" />
           <Stack mt="6" spacing="3">
-            <Skeleton w="300px" h="40px" />
+            <Skeleton w="300px" h="45px" />
             <Skeleton h="10px" />
             <Skeleton h="10px" />
             <Skeleton h="10px" />

@@ -35,11 +35,14 @@ export const ProjectCard = ({ project, prefetchProject }: ProjectCardProps) => {
           alt="obra"
           borderRadius="xl"
           w="sm"
+          h="220px"
           loading="lazy"
         />
         <Stack mt="6" spacing="3">
-          <Heading size="md">{entity}</Heading>
-          <Text fontSize="small" textAlign="justify">
+          <Heading size="md" height="45px">
+            {entity}
+          </Heading>
+          <Text fontSize="small" textAlign="justify" height="60px">
             {name}
           </Text>
           <Text fontSize="2xl" fontWeight={600}>
