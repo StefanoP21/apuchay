@@ -24,7 +24,11 @@ export const ProjectCard = ({ project, prefetchProject }: ProjectCardProps) => {
   const { infobrasCode, imageUrl, name, entity, amount } = project;
 
   return (
-    <Card w={['xs', 'sm']} borderRadius="3xl">
+    <Card
+      w={['xs', 'sm']}
+      borderRadius="3xl"
+      onMouseEnter={() => prefetchProject(infobrasCode)}
+    >
       <CardBody>
         <Image
           src={imageUrl}
@@ -45,10 +49,7 @@ export const ProjectCard = ({ project, prefetchProject }: ProjectCardProps) => {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link
-          to={`/projects/${infobrasCode}`}
-          onMouseEnter={() => prefetchProject(infobrasCode)}
-        >
+        <Link to={`/projects/${infobrasCode}`}>
           <Button rightIcon={<InfoIcon />} variant="outline" colorScheme="red">
             Más información
           </Button>

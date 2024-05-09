@@ -31,7 +31,11 @@ export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
   }, []);
 
   return (
-    <Card w={['xs', 'sm']} borderRadius="3xl">
+    <Card
+      w={['xs', 'sm']}
+      borderRadius="3xl"
+      onMouseEnter={() => prefetchCourse(courseCode)}
+    >
       <CardBody>
         <Image src={imageUrl} alt={name} borderRadius="xl" w="sm" />
         <Stack mt="6" spacing="3">
@@ -45,10 +49,7 @@ export const CourseCard = ({ course, prefetchCourse }: CourseCardProps) => {
       </CardBody>
       <Divider />
       <CardFooter justifyContent="center">
-        <Link
-          to={mutation.isSuccess ? `/courses/${courseCode}` : `/auth`}
-          onMouseEnter={() => prefetchCourse(courseCode)}
-        >
+        <Link to={mutation.isSuccess ? `/courses/${courseCode}` : `/auth`}>
           <Button
             leftIcon={mutation.isSuccess ? <CheckCircleIcon /> : <InfoIcon />}
             colorScheme={mutation.isSuccess ? 'green' : 'red'}
