@@ -10,6 +10,7 @@ import {
 import { Search2Icon } from '@chakra-ui/icons';
 
 import { ProjectList, ProjectSelect, useProjects } from '..';
+import { ProjectSkeleton } from '../components/project/ProjectSkeleton';
 
 export const ProjectsPage = () => {
   const { isLoading, projects } = useProjects();
@@ -55,7 +56,7 @@ export const ProjectsPage = () => {
         Buscar Obras
       </Button>
       <Divider marginY={10} />
-      <ProjectList projects={projects} />
+      {isLoading ? <ProjectSkeleton /> : <ProjectList projects={projects} />}
     </Container>
   );
 };
