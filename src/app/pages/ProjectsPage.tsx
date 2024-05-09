@@ -9,8 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 
-import { ProjectList, ProjectSelect, useProjects } from '..';
-import { ProjectSkeleton } from '../components/project/ProjectSkeleton';
+import { ProjectList, ProjectSelect, ProjectSkeleton, useProjects } from '..';
 
 export const ProjectsPage = () => {
   const { isLoading, projects } = useProjects();
