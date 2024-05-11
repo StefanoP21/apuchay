@@ -18,8 +18,8 @@ import svg from '/jamstack.svg';
 import { InputField, PasswordField, useSignIn, type UserForm } from '..';
 
 const defaultValues = {
-  email: '',
-  password: '',
+  email: 'stefano@gmail.com',
+  password: '123456',
 };
 
 export const SignInPage = () => {
